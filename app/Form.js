@@ -2,30 +2,31 @@
 
 import { supabase } from "@/utils/supabase";
 
+async function handle(e) {
+  e.preventDefault();
+  const content = e.target.content.value;
+  if (e.target.content.value != "") {
+    try {
+      console.log(data, error, "here");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      console.log("done");
+    }
+  }
+}
 export default async function Form() {
   return (
     <>
-      <form
-        onClick={async () => {
-          try {
-            const { data, error } = await supabase
-              .from("socios")
-              .insert([{ content: "content" }]);
-            // const { data, error } = await supabase.from("socios").select();
-            console.log(data, "here");
-          } catch (error) {
-            console.log(error);
-          } finally {
-            console.log("done");
-          }
-        }}>
+      <form onSubmit={handle}>
         <input
           type="text"
           className="text-black"
+          name="content"
         />
         <button
           className="text-white"
-          type="button">
+          type="submit">
           Submit
         </button>
       </form>
