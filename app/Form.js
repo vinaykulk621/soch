@@ -7,7 +7,7 @@ async function handle(e) {
   e.preventDefault();
   const content = e.target.content.value.trim();
   try {
-    await supabase.from("socios").insert([{ content: content }]);
+    await supabase.from("socio").insert([{ content: content }]);
   } catch (error) {
     console.log(error);
   } finally {
