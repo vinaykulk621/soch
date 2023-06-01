@@ -5,7 +5,7 @@ const Form = dynamic(() => import("./Form"), { ssr: false });
 export const revalidate = 0;
 
 export default async function Home() {
-  const { data, error } = await supabase.from("socios").select();
+  const { data, error } = await supabase.from("socio").select();
   if (error) return <>Error!!</>;
   if (data)
     return (
